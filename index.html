@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTP Part Number Index v2.3 - Grouped Family Tags</title>
+<style>
+:root{--bg:#0f141e;--bg-soft:#151c2a;--card:#1a2335;--border:#2a364f;--text:#e6edf7;--muted:#8b9bb4;--accent:#4ea8ff;--accent-2:#2b6cb0;--success:#22c55e;--row-alt:#162032;--row-hover:#223252;}
+*{box-sizing:border-box}
+body{font-family:ui-sans-system,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(1200px 600px at 50% -10%,#1d2e52 0%,var(--bg) 60%);color:var(--text);margin:0;padding:28px 18px 60px;line-height:1.5}
+.container{max-width:1280px;margin:0 auto}
+header{text-align:center;margin-bottom:26px}
+header h1{margin:0;font-size:2.1rem;font-weight:800}
+.badge-v2{display:inline-block;margin-left:10px;font-size:0.7rem;background:var(--accent-2);color:#fff;padding:3px 8px;border-radius:999px;font-weight:700}
+header p{margin:8px 0 0;color:var(--muted)}
+.card{background:linear-gradient(180deg,var(--card) 0%,var(--bg-soft) 100%);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:18px;box-shadow:0 10px 30px rgba(0,0,0,0.25)}
+.control-grid{display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1.6fr 1.3fr auto;gap:14px;align-items:end}
+@media(max-width:1100px){.control-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.control-grid{grid-template-columns:1fr}}
+label{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:7px}
+select,input{height:42px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#0f141e;color:var(--text);font-size:0.92rem;width:100%}
+select:focus,input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(78,168,255,0.25)}
+.btn{height:42px;padding:0 16px;border-radius:10px;border:1px solid var(--border);background:#22304a;color:var(--text);font-weight:600;font-size:0.88rem;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--accent-2);border-color:#3a7bc8;color:#fff}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.stats{color:var(--muted);font-size:0.86rem} .stats b{color:var(--text)}
+.chips{display:flex;flex-wrap:wrap;gap:8px} .chip{font-size:0.75rem;padding:5px 10px;border-radius:999px;border:1px solid var(--border);background:#1c2941;display:inline-flex;gap:6px}
+.table-header{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-bottom:12px}
+.table-container{overflow:auto;border-radius:12px;border:1px solid var(--border);max-height:72vh}
+table{width:100%;border-collapse:collapse;background:var(--card)} th{position:sticky;top:0;z-index:2;background:#23314f;color:#c8d6ea;padding:13px 14px;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;font-weight:700;text-align:left}
+td{padding:12px 14px;border-bottom:1px solid var(--border);font-size:0.93rem;vertical-align:top} tr:nth-child(even){background:var(--row-alt)} tr:hover{background:var(--row-hover)}
+.part-cell{display:flex;align-items:center;justify-content:flex-end;gap:10px}
+.part-badge{background:linear-gradient(180deg,#2b6cb0,#1f4f82);color:#fff;padding:5px 9px;border-radius:7px;font-weight:800;font-family:ui-monospace,monospace;font-size:0.9rem;border:1px solid #3a7bc8}
+.heater-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.heater-tag{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;color:#9ecfff;background:rgba(78,168,255,0.12);border:1px solid rgba(78,168,255,0.28);padding:4px 9px;border-radius:8px;font-weight:600;line-height:1.2}
+.heater-tag .family{color:#c7ddff;font-weight:800}
+.heater-tag .models{color:#8fb9e8;font-weight:500}
+.heater-tag .sep{color:#5a7fb0;margin:0 2px}
+.copy-btn{background:#22304a;color:var(--text);border:1px solid var(--border);padding:5px 10px;border-radius:7px;font-size:0.78rem;font-weight:700;cursor:pointer}
+.copy-btn.copied{background:var(--success);border-color:var(--success);color:#052e16}
+.no-results{text-align:center;padding:36px;color:var(--muted)}
+.highlight{background:rgba(78,168,255,0.28);color:#fff;padding:0 2px;border-radius:3px}
+.kbd{font-family:ui-monospace,monospace;font-size:0.7rem;background:#111a2b;border:1px solid var(--border);border-bottom-width:2px;padding:2px 6px;border-radius:5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="container">
+<header><h1>HTP Part Number Index <span class="badge-v2">V2.3 • GROUPED TAGS</span></h1><p>One tag per family — models grouped in brackets</p></header>
+<div class="card" id="filtersCard">
+<div class="control-grid">
+<div><label>Application</label><select id="appSelect"><option value="">All Applications</option><option value="Commercial">Commercial</option><option value="Residential">Residential</option></select></div>
+<div><label>Fuel Type</label><select id="fuelSelect"><option value="">All Fuel Types</option><option value="Gas">Gas</option><option value="Electric">Electric</option></select></div>
+<div><label>1. Product Family</label><select id="familySelect"><option value="">All Families...</option></select></div>
+<div><label>2. Select Model</label><select id="modelSelect"><option value="">Choose a model...</option></select></div>
+<div><label>3. Search Parts — <span style="text-transform:none;font-weight:400"><span class="kbd">/</span> to focus</span></label><input id="partSearch" placeholder="Type part # or description..."></div>
+<button class="btn" id="resetBtn">Reset</button>
+</div>
+<div class="toolbar"><div class="stats" id="statsBar"></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="shareBtn">Share link</button><button class="btn" id="exportBtn">Export CSV</button><button class="btn btn-primary" id="copyAllBtn">Copy all visible</button></div></div>
+<div id="chipsRow" class="chips" style="margin-top:12px"></div>
+</div>
+<div class="card" id="tableCard" style="display:none"><div class="table-header"><div class="stats" id="resultMeta"></div><div style="display:flex;gap:8px;align-items:center"><label style="margin:0;font-size:0.75rem">Sort:</label><select id="sortSelect" style="height:36px;width:160px"><option value="desc-asc">Description A-Z</option><option value="part-asc">Part # A-Z</option><option value="models-desc">Most models first</option></select></div></div><div class="table-container"><table><thead><tr><th>Description</th><th style="width:300px;text-align:right">Part Number</th></tr></thead><tbody id="partsTableBody"></tbody></table></div><div style="text-align:center;margin-top:12px"><button class="btn" id="loadMoreBtn" style="display:none">Load 100 more</button> <span class="stats" id="pageInfo"></span></div></div>
+<div class="card" id="emptyCard" style="text-align:center;color:var(--muted)"><h3 style="color:var(--text)">Select a model or start searching</h3><p>Press <span class="kbd">/</span> to search. Global search merges duplicate part numbers and groups models per family.</p></div>
+</div>
+<script>
+const catalogDatabase = [
+      {
+        family: "Commercial Phoenix",
+        application: "Commercial",
+        fuel: "Gas",
+        models: [
+          {
+            modelName: "PH100 - PH199 (Before 5/1/2015)",
+            parts: [
+              { desc: "LOW WATER CUT-OFF SENSOR", part: "7000P-852-1" },
+              { desc: "HIGH TEMP SAFETY SWITCH", part: "7100P-006" },
+              { desc: "UPPER/LOWER TEMPERATURE SENSOR", part: "7100P-004" },
+              { desc: "TEMPERATURE AND PRESSURE RELIEF VALVE 100 BTU", part: "TP1900" },
+              { desc: "TEMPERATURE AND PRESSURE RELIEF VALVE 130/160/199 BTU", part: "TP1400" },
+              { desc: "BLOCKED VENT PRESSURE SWITCH", part: "7250P-150" },
+              { desc: "CONTROL BOARD", part: "7450P-122" },
+              { desc: "120 VOLT WIRE HARNESS", part: "7100P-272" },
+              { desc: "LOW VOLTAGE WIRE HARNESS", part: "7100P-273" },
+              { desc: "CONTROL DISPLAY", part: "7350P-009" },
+              { desc: "S.S. HOSE BARB", part: "7250P-154" },
+              { desc: "HIGH FLUE TEMP SWITCH", part: "VS210" },
+              { desc: "CONDENSATE HOSE", part: "7100P-121" },
+              { desc: "HOSE CLAMP-CONDENSATE HOSE", part: "7250P-215" },
+              { desc: "SENSOR WIRE HARNESS (ATTACHES TO ITEM #9)", part: "7100P-274" },
+              { desc: "2\" COUPLING - AIR INLET (100/130 BTU)", part: "7100P-114" },
+              { desc: "3\" COUPLING - AIR INLET (160/199 BTU)", part: "7100P-103" },
+              { desc: "NUT-AIR INLET COUPLING", part: "7100P-104" },
+              { desc: "OUTDOOR SENSOR", part: "7250P-319" },
+              { desc: "COLD WATER INLET DIP TUBE (PHM MODEL ONLY)", part: "6070P-048" },
+              { desc: "DRAIN VALVE (PHM MODEL ONLY)", part: "6070P-009" },
+              { desc: "GASKET-MOUNTING PLATE", part: "7100P-139" },
+              { desc: "MOUNTING PLATE", part: "7100P-007" },
+              { desc: "GASKET-PROBES", part: "7100P-155" },
+              { desc: "FLAME RECTIFICATION PROBE (w/GASKET)", part: "7100P-082" },
+              { desc: "IGNITOR ELECTRODE (W/GASKET)", part: "7100P-124" },
+              { desc: "GASKET-BURNER MOUNTING FLANGE", part: "7100P-152" },
+              { desc: "BURNER-100-130K BTU", part: "7100P-316" },
+              { desc: "BURNER-160-199K BTU", part: "7100P-317" },
+              { desc: "GASKET-BURNER OUTLET", part: "7000P-361" },
+              { desc: "GASKET-SIGHT GLASS", part: "7100P-105" },
+              { desc: "SIGHT GLASS", part: "G2000" },
+              { desc: "COMBUSTION BLOWER (W/GASKET, SIGHT GLASS)", part: "7100P-015" },
+              { desc: "COMBUSTION BLOWER (199K BTU ONLY)", part: "7100P-350" },
+              { desc: "1/4-20 BRASS NUTS/1/4 LOCK WASHERS", part: "7100P-268" },
+              { desc: "ADAPTER PLATE", part: "7250P-644" },
+              { desc: "FLAT HEAD SCREW-ADAPTER PLATE", part: "7100P-045" },
+              { desc: "AIR INTAKE ADAPTER-BLOWER SIDE", part: "7500P-185" },
+              { desc: "SWIRL PLATE-BLACK (100/130 BTU)", part: "7100P-042" },
+              { desc: "SWIRL PLATE-WHITE (160/199 BTU)", part: "7500P-092" },
+              { desc: "AIR INTAKE ADAPTER-VALVE SIDE", part: "7500P-184" },
+              { desc: "GAS VALVE (100/130 BTU)", part: "7000P-862" },
+              { desc: "GAS VALVE (160/199 BTU)", part: "7000P-863" },
+              { desc: "SCREWS-GAS VALVE", part: "7100P-046" },
+              { desc: "1/2\" FLARE X 1/2\" NPT FLEX HOSE", part: "7100P-140" },
+              { desc: "TUBE-AIR INLET", part: "7500P-189" },
+              { desc: "GAS VALVE ADAPTER (w/O-RING)", part: "7250P-454" },
+              { desc: "SCREWS-M4 X 20MM GAS VALVE ADAPTER", part: "7250P-717" },
+              { desc: "GAS SHUT-OFF VALVE", part: "7250P-140" },
+              { desc: "24VAC GAS VALVE COIL ONLY-GREY", part: "7350P-624" }
+            ]
+          },
+          {
+            modelName: "PH100 - PH199 (5/1/15 - 4/9/17)",
+            parts: [
+              { desc: "LOW WATER CUT-OFF SENSOR", part: "7000P-852-1" },
+              { desc: "HIGH TEMP SAFETY SWITCH", part: "7100P-006" },
+              { desc: "UPPER/LOWER TEMPERATURE SENSOR", part: "7100P-004" },
+              { desc: "TEMPERATURE AND PRESSURE RELIEF VALVE 100 BTU", part: "TP1900" },
+              { desc: "TEMPERATURE AND PRESSURE RELIEF VALVE 130/160/199 BTU", part: "TP1400" },
+              { desc: "BLOCKED VENT PRESSURE SWITCH", part: "7250P-150" },
+              { desc: "CONTROL BOARD", part: "7450P-122" },
+              { desc: "120 VOLT WIRE HARNESS", part: "7100P-272" },
+              { desc: "LOW VOLTAGE WIRE HARNESS", part: "7100P-273" },
+              { desc: "CONTROL DISPLAY", part: "7350P-009" },
+              { desc: "S.S. HOSE BARB", part: "7250P-154" },
+              { desc: "HIGH FLUE TEMP SWITCH", part: "VS210" },
+              { desc: "CONDENSATE HOSE", part: "7100P-121" },
+              { desc: "HOSE CLAMP-CONDENSATE HOSE", part: "7250P-215" },
+              { desc: "SENSOR WIRE HARNESS (ATTACHES TO ITEM #9)", part: "7100P-274" },
+              { desc: "2\" COUPLING - AIR INLET (100/130 BTU)", part: "7100P-114" },
+              { desc: "3\" COUPLING - AIR INLET (160/199 BTU)", part: "7100P-103" },
+              { desc: "NUT-AIR INLET COUPLING", part: "7100P-104" },
+              { desc: "OUTDOOR SENSOR", part: "7250P-319" },
+              { desc: "COLD WATER INLET DIP TUBE (PHM MODEL ONLY)", part: "6070P-048" },
+              { desc: "DRAIN VALVE (PHM MODEL ONLY)", part: "6070P-009" },
+              { desc: "GASKET-MOUNTING PLATE", part: "7100P-139" },
+              { desc: "MOUNTING PLATE", part: "7100P-007" },
+              { desc: "GASKET-PROBES", part: "7100P-155" },
+              { desc: "FLAME RECTIFICATION PROBE (w/GASKET)", part: "7100P-082" },
+              { desc: "IGNITOR ELECTRODE (W/GASKET)", part: "7100P-124" },
+              { desc: "GASKET-BURNER MOUNTING FLANGE", part: "7100P-152" },
+              { desc: "BURNER-100-130K BTU", part: "7100P-316" },
+              { desc: "BURNER-160-199K BTU", part: "7100P-317" },
+              { desc: "GASKET-BURNER OUTLET", part: "7000P-361" },
+              { desc: "GASKET-SIGHT GLASS", part: "7100P-105" },
+              { desc: "SIGHT GLASS", part: "G2000" },
+              { desc: "COMBUSTION BLOWER (W/GASKET, SIGHT GLASS)", part: "7100P-015" },
+              { desc: "COMBUSTION BLOWER (199K BTU ONLY)", part: "7100P-350" },
+              { desc: "1/4-20 BRASS NUTS/1/4 LOCK WASHERS", part: "7100P-268" },
+              { desc: "ADAPTER PLATE", part: "7250P-644" },
+              { desc: "FLAT HEAD SCREW-ADAPTER PLATE", part: "7100P-045" },
+              { desc: "AIR INTAKE ADAPTER-BLOWER SIDE", part: "7500P-185" },
+              { desc: "SWIRL PLATE-BLACK (100/130 BTU)", part: "7100P-042" },
+              { desc: "SWIRL PLATE-WHITE (160/199 BTU)", part: "7500P-092" },
+              { desc: "AIR INTAKE ADAPTER-VALVE SIDE", part: "7500P-184" },
+              { desc: "GAS VALVE (100/130 BTU)", part: "7000P-862" },
+              { desc: "GAS VALVE (160/199 BTU)", part: "7000P-863" },
+              { desc: "SCREWS-GAS VALVE", part: "7100P-046" },
+              { desc: "1/2\" FLARE X 1/2\" NPT FLEX HOSE", part: "7100P-140" },
+              { desc: "TUBE-AIR INLET", part: "7500P-189" },
+              { desc: "GAS VALVE ADAPTER (w/O-RING)", part: "7250P-454" },
+              { desc: "SCREWS-M4 X 20MM GAS VALVE ADAPTER", part: "7250P-717" },
+              { desc: "GAS SHUT-OFF VALVE", part: "7250P-140" },
+              { desc: "24VAC GAS VALVE COIL ONLY-GREY", part: "7350P-624" }
+            ]
+          },
+          {
+            modelName: "PH(M)100 - PH(M)199 (4/10/17 - 8/31/21)",
+            parts: [
+              { desc: "LOW WATER CUT-OFF SENSOR", part: "7000P-852-1" },
+              { desc: "HIGH TEMP SAFETY SWITCH", part: "7100P-006" },
+              { desc: "UPPER TEMPERATURE SENSOR", part: "7100P-004" },
+              { desc: "TEMPERATURE AND PRESSURE RELIEF VALVE 100 BTU", part: "TP1900" },
+              { desc: "TEMPERATURE AND PRESSURE RELIEF VALVE 130/160/199 BTU", part: "TP1400" },
+              { desc: "BLOCKED VENT PRESSURE SWITCH", part: "7250P-150" },
+              { desc: "CONTROL BOARD", part: "SSE PHOENIX CONTROL BOARD" },
+              { desc: "120 VOLT WIRE HARNESS", part: "7100P-272" },
+              { desc: "LOW VOLTAGE WIRE HARNESS", part: "7100P-273" },
+              { desc: "CONTROL DISPLAY", part: "SEE PHOENIX CONTROL BOARD" },
+              { desc: "S.S. HOSE BARB", part: "7250P-154" },
+              { desc: "HIGH FLUE TEMP SWITCH", part: "VS210" },
+              { desc: "CONDENSATE HOSE", part: "7100P-121" },
+              { desc: "HOSE CLAMP-CONDENSATE HOSE", part: "7250P-215" },
+              { desc: "SENSOR WIRE HARNESS (ATTACHES TO ITEM #9)", part: "7100P-274" },
+              { desc: "2\" COUPLING AIR INLET (100/130 BTU)", part: "7100P-114" },
+              { desc: "3\" COUPLING AIR INLET (160/199 BTU)", part: "7100P-103" },
+              { desc: "NUT-AIR INLET COUPLING", part: "7100P-104" },
+              { desc: "OUTDOOR SENSOR", part: "7250P-319" },
+              { desc: "COLD WATER INLET DIP TUBE (PHM MODEL ONLY)", part: "6070P-048" },
+              { desc: "DRAIN VALVE (PHM MODEL ONLY)", part: "6070P-009" },
+              { desc: "SCREEN-DIP TUBE", part: "7100P-086" },
+              { desc: "ALUMINUM ANODE .74\" DIA X 12\" LENGTH", part: "6060-155" },
+              { desc: "GASKET MOUNTING PLATE", part: "7100P-139" },
+              { desc: "MOUNTING PLATE", part: "7100P-007" },
+              { desc: "GASKET PROBES", part: "7100P-155" },
+              { desc: "FLAME RECTIFICATION PROBE (W/GASKET)", part: "7100P-082" },
+              { desc: "IGNITOR ELECTRODE (W/GASKET)", part: "7100P-124" },
+              { desc: "5/16-18 x 5/8\" SOCKET CAP SCREW", part: "7700P-101" },
+              { desc: "GASKET-BURNER MOUNTING FLANGE", part: "7100P-152" },
+              { desc: "BURNER-100-130K BTU", part: "7100P-516" },
+              { desc: "BURNER-160-199K BTU", part: "7100P-517" },
+              { desc: "GASKET BURNER OUTLET", part: "7000P-361" },
+              { desc: "GASKET SIGHT GLASS", part: "7100P-105" },
+              { desc: "SIGHT GLASS", part: "G2000" },
+              { desc: "GASKET-AIR CHANNEL", part: "7500P-075" },
+              { desc: "AIR CHANNEL", part: "7700P-003" },
+              { desc: "COMBUSTION BLOWER (ALL BTU'S)", part: "7100P-330" },
+              { desc: "1/4-20 BRASS NUTS/1/4 LOCK WASHERS", part: "7100P-268" },
+              { desc: "ADAPTER PLATE", part: "7250P-644" },
+              { desc: "SCREW-ADAPTER PLATE", part: "7100P-045" },
+              { desc: "AIR INTAKE ADAPTER-BLOWER SIDE", part: "7500P-185" },
+              { desc: "SWIRL PLATE-BLACK (100/130 BTU)", part: "7100P-042" },
+              { desc: "SWIRL PLATE-WHITE (160/199 BTU)", part: "7500P-092" },
+              { desc: "AIR INTAKE ADAPTER-VALVE SIDE", part: "7500P-184" },
+              { desc: "GAS VALVE (100/130 BTU)", part: "7000P-862" },
+              { desc: "GAS VALVE (160/199 BTU)", part: "7000P-863" },
+              { desc: "SCREWS", part: "7250P-717" },
+              { desc: "1/2\" FLARE X 1/2\" NPT FLEX HOSE", part: "7100P-140" },
+              { desc: "TUBE-AIR INLET", part: "7500P-189" },
+              { desc: "GAS VALVE ADAPTER (w/ O-RING)", part: "7250P-454" },
+              { desc: "GAS SHUT-OFF VALVE", part: "7250P-140" },
+              { desc: "1/2\" FLARE X 1/2\" NPT FITTING", part: "7450P-154" },
+              { desc: "1/2\" MALE X FEMALE BLACK 90 DEGREE ELBOW", part: "7250P-693" }
+            ]
+          },
+          {
+            modelName: "PH(M)100 - PH(M)199 (After 9/1/21)",
+            parts: [
+              { desc: "LOW WATER CUT-OFF SENSOR", part: "64980131" },
+              { desc: "HIGH TEMP SAFETY SWITCH/SENSOR (AFTER 9/1/21)", part: "7450P-281" },
+              { desc: "HIGH TEMP SAFETY SWITCH ONLY (BEFORE 9/1/21)", part: "64980012" },
+              { desc: "TEMPERATURE SENSOR", part: "64980013" },
+              { desc: "TEMPERATURE AND PRESSURE RELIEF VALVE 100 BTU", part: "64980410" },
+              { desc: "TEMPERATURE AND PRESSURE RELIEF VALVE 130/160/199 BTU", part: "6500823600" },
+              { desc: "BLOCKED VENT PRESSURE SWITCH", part: "64980007" },
+              { desc: "CONTROL BOARD", part: "SEE PHOENIX CONTROL BOARD" },
+              { desc: "120 VOLT WIRE HARNESS", part: "7100P-272" },
+              { desc: "LOW VOLTAGE WIRE HARNESS", part: "7100P-273" },
+              { desc: "CONTROL DISPLAY", part: "64980136" },
+              { desc: "S.S. HOSE BARB", part: "64980137" },
+              { desc: "HIGH FLUE TEMP SWITCH", part: "64980138" },
+              { desc: "CONDENSATE HOSE", part: "64980139" },
+              { desc: "HOSE CLAMP-CONDENSATE HOSE", part: "64980140" },
+              { desc: "SENSOR WIRE HARNESS (AFTER 9/1/21)", part: "7100P-275" },
+              { desc: "SENSOR WIRE HARNESS (BEFORE 9/1/21)", part: "7100P-274" },
+              { desc: "2\" COUPLING AIR INLET (100/130 BTU)", part: "7100P-114" },
+              { desc: "3\" COUPLING AIR INLET (160/199 BTU)", part: "64980142" },
+              { desc: "NUT-AIR INLET COUPLING", part: "64980286" },
+              { desc: "OUTDOOR SENSOR", part: "7250P-319" },
+              { desc: "COLD WATER INLET DIP TUBE (PHM MODEL ONLY)", part: "6070P-048" },
+              { desc: "DRAIN VALVE", part: "6070P-009" },
+              { desc: "SCREEN-DIP TUBE", part: "7100P-086" },
+              { desc: "ALUMINUM ANODE .63\" DIA X 12\" LENGTH", part: "6060P-008" },
+              { desc: "ADAPTER-FEMALE-1/2 X 1/2", part: "7700P-077" },
+              { desc: "GASKET MOUNTING PLATE", part: "64980028" },
+              { desc: "MOUNTING PLATE", part: "64980029" },
+              { desc: "GASKET PROBES", part: "64980030" },
+              { desc: "FLAME RECTIFICATION PROBE (W/GASKET)", part: "64980031" },
+              { desc: "IGNITOR ELECTRODE (W/GASKET)", part: "64980032" },
+              { desc: "10-32 X 3/8 SCREWS/#10 LOCK WASHERS", part: "64980033" },
+              { desc: "5/16-18 x 5/8\" SOCKET CAP SCREW", part: "64980034" },
+              { desc: "GASKET BURNER MOUNTING FLANGE", part: "64980035" },
+              { desc: "BURNER-100-130K BTU", part: "64980036" },
+              { desc: "BURNER-160-199K BTU", part: "64980037" },
+              { desc: "GASKET BURNER OUTLET", part: "64980038" },
+              { desc: "GASKET SIGHT GLASS", part: "64980039" },
+              { desc: "SIGHT GLASS", part: "64980040" },
+              { desc: "GASKET AIR CHANNEL", part: "64980043" },
+              { desc: "AIR CHANNEL", part: "7700P-003" },
+              { desc: "COMBUSTION BLOWER (ALL BTU'S)", part: "6500676400" },
+              { desc: "1/4-20 BRASS NUTS/1/4 LOCK WASHERS", part: "64980042" },
+              { desc: "ADAPTER PLATE", part: "64980046" },
+              { desc: "SCREW-ADAPTER PLATE", part: "64980283" },
+              { desc: "AIR INTAKE ADAPTER-BLOWER SIDE", part: "64980050" },
+              { desc: "SWIRL PLATE-BLACK (100/130 BTU)", part: "64980048" },
+              { desc: "SWIRL PLATE-WHITE (160/199 BTU)", part: "64980049" },
+              { desc: "AIR INTAKE ADAPTER-VALVE SIDE", part: "64980047" },
+              { desc: "GAS VALVE (100/130 BTU)", part: "64980051" },
+              { desc: "GAS VALVE (160/199 BTU)", part: "64980052" },
+              { desc: "SCREWS", part: "64980287" },
+              { desc: "1/2\" FLARE X 1/2\" NPT FLEX HOSE", part: "64980023" },
+              { desc: "TUBE-AIR INLET", part: "64980056" },
+              { desc: "GAS VALVE ADAPTER (W/O-RING)", part: "64980053" },
+              { desc: "GAS SHUT-OFF VALVE", part: "64980054" },
+              { desc: "1/2\" FLARE X 1/2\" NPT FITTING", part: "64980057" },
+              { desc: "1/2\" MALE X FEMALE BLACK 90 DEGREE ELBOW", part: "7250P-693" }
+            ]
+          },
+          {
+            modelName: "PH100 - PH199 Control Board",
+            parts: [
+              { desc: "100kBTU 55 Gal", part: "7100P-1100" },
+              { desc: "130kBTU 55 Gal", part: "7100P-1101" },
+              { desc: "160kBTU 55 Gal", part: "7100P-1102" },
+              { desc: "199kBTU 55 Gal", part: "7100P-1103" },
+              { desc: "100kBTU 80 Gal", part: "7100P-1104" },
+              { desc: "130kBTU 80 Gal", part: "7100P-1105" },
+              { desc: "160kBTU 80 Gal", part: "7100P-1106" },
+              { desc: "199kBTU 80 Gal", part: "7100P-1107" },
+              { desc: "100kBTU 119 Gal", part: "7100P-1108" },
+              { desc: "130kBTU 119 Gal", part: "7100P-1109" },
+              { desc: "160kBTU 119 Gal", part: "7100P-1110" },
+              { desc: "199kBTU 119 Gal", part: "7100P-1111" },
+              { desc: "Solar 130kBTU 80/119 Gal", part: "7100P-1112" },
+              { desc: "Solar 199kBTU 80/119 Gal", part: "7100P-1113" },
+              { desc: "Sanitizer 130kBTU 55 Gal", part: "7100P-1115" },
+              { desc: "Sanitizer 199kBTU 55 Gal", part: "7100P-1114" },
+              { desc: "HiTemp 199kBTU 80 Gal", part: "7100P-1117" },
+              { desc: "HiTemp 199kBTU 119 Gal", part: "7100P-1116" },
+              { desc: "PHM 130kBTU 80 Gal", part: "7100P-1120" },
+              { desc: "PHM 130kBTU 100 Gal", part: "7100P-1121" },
+              { desc: "PHM 199kBTU 80 Gal", part: "7100P-1122" },
+              { desc: "PHM 199kBTU 100 Gal", part: "7100P-1123" }
+            ]
+          }
+        ]
+      },
+      {
+        family: "Phoenix Light Duty",
+        application: "Residential",
+        fuel: "Gas",
+        models: [
+          {
+            modelName: "PH76-50 - PH76-80",
+            parts: [
+              { desc: "COLD INLET DIP TUBE-50 MODEL", part: "6070P-038" },
+              { desc: "COLD INLET DIP TUBE-60 MODEL", part: "7700P-061" },
+              { desc: "COLD INLET DIP TUBE-80 MODEL", part: "7700P-062" },
+              { desc: "AUXILIARY DIP TUBE-50 MODEL", part: "7700P-160" },
+              { desc: "AUXILIARY DIP TUBE-60 MODEL", part: "6070P-044" },
+              { desc: "AUXILIARY DIP TUBE80 MODEL", part: "6070P-038" },
+              { desc: "TEMP/PRESSURE RELIEF VALVE", part: "6TP1700" },
+              { desc: "CABINET UPPER PANEL", part: "7700P-082" },
+              { desc: "CABINET ACCESS DOOR", part: "7700P-042" },
+              { desc: "CABINET LOWER PANEL", part: "7700P-043" },
+              { desc: "AIR INLET TUBE w/FLAPPER", part: "7700P-046" },
+              { desc: "COMBINATION TEMPERATURE SENSOR", part: "7700P-073" },
+              { desc: "BRASS DRAIN VALVE", part: "2500P-0090" },
+              { desc: "ALUMINUM ANODE 12 LENGTH (1-1/16 SOCKET)", part: "6060P-008" },
+              { desc: "GASKET-BURNER MOUNTING PLATE", part: "7700P-017" },
+              { desc: "BURNER MOUNTING PLATE", part: "7700P-016" },
+              { desc: "SCREWS-5/16-18-BURNER MOUNTING PLATE", part: "64980034" },
+              { desc: "GASKET-IGNITOR", part: "7700P-071" },
+              { desc: "ELECTRODE-SPARK (W/GASKET)", part: "64980032" },
+              { desc: "SCREWS/WASHERS 10-32-ELECTRODE (2)", part: "64980033" },
+              { desc: "GASKET-BURNER FLANGE", part: "64980035" },
+              { desc: "BURNER (W/GASKET)", part: "7700P-104" },
+              { desc: "GASKET-BLOWER OUTLET", part: "64980038" },
+              { desc: "GASKET-BLOWER OUTLET (LP ONLY)", part: "7700P-107" },
+              { desc: "AIR INLET CHANNEL", part: "7700P-003" },
+              { desc: "NUTS/WASHER-1/4-20", part: "64980042" },
+              { desc: "GASKET-AIR INLET CHANNEL/BLOWER", part: "64980043" },
+              { desc: "GASKET-AIR INLET CHANNEL/BLOWER (LP ONLY)", part: "7700P-106" },
+              { desc: "SCREW-10-32-COMBUSTION BLOWER", part: "7700P-108" },
+              { desc: "COMBUSTION BLOWER", part: "7700P-102" },
+              { desc: "VENTURI", part: "7700P-032" },
+              { desc: "SCREW-M5 X 12MM VENTURI", part: "7250P-478" },
+              { desc: "CLIP-VENTURI", part: "7700P-034" },
+              { desc: "O-RING-VENTURI", part: "7700P-035" },
+              { desc: "GAS VALVE", part: "7700P-036" },
+              { desc: "WASHER-FEMALE ADAPTER", part: "7450P-115" },
+              { desc: "FITTING-FLARE X BSPP ADAPTER", part: "7700P-072" },
+              { desc: "GAS LINE-FLEXIBLE 1/2\"", part: "64980023" },
+              { desc: "AIR INLET", part: "64980056" },
+              { desc: "GAS SHUT-OFF VALVE", part: "64980054" },
+              { desc: "KEYPAD", part: "7700P-039" },
+              { desc: "CONTROL BOARD-NATURAL GAS", part: "7700P-3100" },
+              { desc: "CONTROL BOARD-LP GAS", part: "7700P-3101" },
+              { desc: "CONDENSATE HOSE (W/CLAMPS)", part: "7700P-211" },
+              { desc: "CONTROL BOARD MOUNTING PANEL", part: "7700P-044" },
+              { desc: "O-RING", part: "7250P-152" },
+              { desc: "LOW VOLTAGE WIRE HARNESS", part: "7700P-085" },
+              { desc: "120V WIRE HARNESS", part: "7700P-086" },
+              { desc: "POWER PLUG", part: "7700P-110" },
+              { desc: "SPARK CABLE", part: "7700P-019" }
+            ]
+          },
+          {
+            modelName: "PH76-50 - PH76-80 Condensate System (Mfg Before 9/27/17) ",
+            parts: [
+              { desc: "CAP-1/2\" NPT", part: "7700P-078" },
+              { desc: "CONDENSATE TRAP", part: "7700P-026" },
+              { desc: "WASHER-CONDENSATE", part: "7700P-031" },
+              { desc: "ADAPTER-1/2\" NPT FEM X BARB", part: "7700P-076" },
+              { desc: "CONDENSATE HOSE (w/CLAMPS)", part: "7700P-068" },
+              { desc: "FITTING 1/2\" NPT MALE X BARB", part: "7100P-044" },
+              { desc: "LOCKNUT-1/2\"", part: "7700P-002" },
+              { desc: "ADAPTER-1/2 X 1/2", part: "7700P-077" },
+              { desc: "FLUE TEMPERATURE SENSOR", part: "7450P-026" },
+              { desc: "PRESSURE SWITCH", part: "7700P-038" },
+              { desc: "HOSE-PRESSURE SWITCH/GAS VALVE", part: "7000P-805" },
+              { desc: "STAINLESS STEEL BARB", part: "64980021" },
+              { desc: "O-RING", part: "64980137" },
+            ]
+          }
+        ]
+      },
+      {
+        family: "RGH Crossover",
+        application: "Residential",
+        fuel: "Gas",
+        models: [
+          {
+            modelName: "RGH-20 (After 10/21/19)",
+            parts: [
+              { desc: "Controller Cover", part: "8100P-034" },
+              { desc: "Top Service Panel", part: "8100P-031" },
+              { desc: "T&P Relief Valve", part: "8100P-015" },
+              { desc: "Drain Valve", part: "8100P-005" },
+              { desc: "Air Intake", part: "8100P-032" },
+              { desc: "Main Power Cord", part: "8100P-009" },
+              { desc: "Pipe Support", part: "8100P-037" },
+              { desc: "Water Heater Stand", part: "8100P-064" },
+              { desc: "Main Controller", part: "8100P-012" },
+              { desc: "Hot Outlet Water Pipe", part: "8100P-021" },
+              { desc: "Tempering Valve", part: "64980671" },
+              { desc: "Exhaust Adaptor", part: "8100P-039" },
+              { desc: "Trap Clamp", part: "8100P-040" },
+              { desc: "Condensate Trap", part: "8100P-024" },
+              { desc: "Intake Air Pressure Switch", part: "8100P-008" },
+              { desc: "Exhaust Air Pressure Switch", part: "8100P-007" },
+              { desc: "Gas Adaptor", part: "8100P-041" },
+              { desc: "Gas Tube", part: "8100P-042" },
+              { desc: "Gas Valve", part: "8100P-001" },
+              { desc: "Blower Assembly with Mixer", part: "8100P-003" },
+              { desc: "Ignition Transformer", part: "8100P-010" },
+              { desc: "Ignitor Box", part: "8100P-043" },
+              { desc: "Gas Valve Support", part: "8100P-044" },
+              { desc: "Pipe Clamp", part: "8100P-045" },
+              { desc: "Burner Assembly", part: "8100P-004" },
+              { desc: "H/E Thermistor", part: "8100P-014" },
+              { desc: "Outlet Thermistor", part: "8100P-016" },
+              { desc: "Radial Blower Adaptor", part: "8100P-046" },
+              { desc: "GV Power Plug", part: "8100P-047" },
+              { desc: "Inlet Water Flow Sensor", part: "8100P-023" },
+              { desc: "Wire Harness", part: "8100P-013" },
+              { desc: "ECO Hot Water Outlet (194°F)", part: "8100P-017" },
+              { desc: "Outlet Fitting", part: "64980670" },
+              { desc: "Cold Inlet Water Pipe", part: "8100P-020" },
+              { desc: "ECO Burner Plate", part: "8100P-022" },
+              { desc: "Accessory Kit", part: "8100P-026" },
+              { desc: "Spare Parts Kit (O-Rings)", part: "8100P-036" },
+              { desc: "Ignitor", part: "8100P-050" },
+              { desc: "Flame Sensing Rod", part: "8100P-071" },
+              { desc: "0.75\" x 21.6\"L Aluminum Anode Rod", part: "8100P-135" }
+            ]
+          },
+          {
+            modelName: "RGH-20 (9/4/18 - 10/21/19)",
+            parts: [
+              { desc: "Controller Cover", part: "8100P-034" },
+              { desc: "Top Service Panel", part: "8100P-031" },
+              { desc: "T&P Relief Valve", part: "8100P-015" },
+              { desc: "Drain Valve", part: "8100P-005" },
+              { desc: "Air Intake", part: "8100P-032" },
+              { desc: "Main Power Cord", part: "8100P-009" },
+              { desc: "Pipe Support", part: "8100P-037" },
+              { desc: "Water Heater Stand", part: "8100P-064" },
+              { desc: "Main Controller (75/76kBTU)", part: "8100P-011" },
+              { desc: "Main Controller (100kBTU)", part: "8100P-012" },
+              { desc: "Hot Outlet Water Pipe", part: "8100P-021" },
+              { desc: "Tempering Valve", part: "8100P-018" },
+              { desc: "Exhaust Adaptor", part: "8100P-039" },
+              { desc: "Trap Clamp", part: "8100P-040" },
+              { desc: "Condensate Trap", part: "8100P-024" },
+              { desc: "Intake Air Pressure Switch (75/76kBTU)", part: "8100P-006" },
+              { desc: "Intake Air Pressure Switch (100kBTU)", part: "8100P-008" },
+              { desc: "Exhaust Air Pressure Switch (75/76kBTU)", part: "8100P-007" },
+              { desc: "Exhaust Air Pressure Switch (100kBTU)", part: "8100P-008" },
+              { desc: "Gas Adaptor", part: "8100P-041" },
+              { desc: "Gas Tube", part: "8100P-042" },
+              { desc: "Gas Valve (75/76kBTU)", part: "8100P-035" },
+              { desc: "Gas Valve (100kBTU)", part: "8100P-001" },
+              { desc: "Blower Assembly with Mixer (75/76kBTU)", part: "8100P-002" },
+              { desc: "Blower Assembly with Mixer (100kBTU)", part: "8100P-003" },
+              { desc: "Ignition Transformer", part: "8100P-010" },
+              { desc: "Ignitor Box", part: "8100P-043" },
+              { desc: "Gas Valve Support", part: "8100P-044" },
+              { desc: "Pipe Clamp", part: "8100P-045" },
+              { desc: "Burner Assembly", part: "8100P-004" },
+              { desc: "H/E Thermistor", part: "8100P-014" },
+              { desc: "Outlet Thermistor", part: "8100P-016" },
+              { desc: "Radial Blower Adaptor", part: "8100P-046" },
+              { desc: "GV Power Plug", part: "8100P-047" },
+              { desc: "Inlet Water Flow Sensor", part: "8100P-023" },
+              { desc: "Wire Harness", part: "8100P-013" },
+              { desc: "ECO Hot Water Outlet (194°F)", part: "8100P-017" },
+              { desc: "Outlet Fitting", part: "8100P-019" },
+              { desc: "Cold Inlet Water Pipe", part: "8100P-020" },
+              { desc: "ECO Burner Plate", part: "8100P-022" },
+              { desc: "Accessory Kit (75/76kBTU)", part: "8100P-025" },
+              { desc: "Accessory Kit (100kBTU)", part: "8100P-026" },
+              { desc: "Spare Parts Kit", part: "8100P-036" },
+              { desc: "Ignitor", part: "8100P-050" },
+              { desc: "Flame Sensing Rod", part: "8100P-071" }
+            ]
+          },
+          {
+            modelName: "RGH-20 (Before 9/4/18)",
+            parts: [
+              { desc: "Controller Cover", part: "8100P-034" },
+              { desc: "Top Service Panel", part: "8100P-031" },
+              { desc: "T&P Relief Valve", part: "8100P-015" },
+              { desc: "Drain Valve", part: "8100P-005" },
+              { desc: "Air Intake", part: "8100P-032" },
+              { desc: "Main Power Cord", part: "8100P-009" },
+              { desc: "Pipe Support", part: "8100P-037" },
+              { desc: "Water Heater Stand", part: "8100P-038" },
+              { desc: "Main Controller (75/76kBTU)", part: "8100P-011" },
+              { desc: "Main Controller (100kBTU)", part: "8100P-012" },
+              { desc: "Hot Outlet Water Pipe", part: "8100P-021" },
+              { desc: "Tempering Valve", part: "8100P-018" },
+              { desc: "Exhaust Adaptor", part: "8100P-039" },
+              { desc: "Trap Clamp", part: "8100P-040" },
+              { desc: "Condensate Trap", part: "8100P-024" },
+              { desc: "Intake Air Pressure Switch (75/76kBTU)", part: "8100P-006" },
+              { desc: "Intake Air Pressure Switch (100kBTU)", part: "8100P-008" },
+              { desc: "Exhaust Air Pressure Switch (75/76kBTU)", part: "8100P-007" },
+              { desc: "Exhaust Air Pressure Switch (100kBTU)", part: "8100P-008" },
+              { desc: "Gas Adaptor", part: "8100P-041" },
+              { desc: "Gas Tube", part: "8100P-042" },
+              { desc: "Gas Valve (75/76kBTU)", part: "8100P-035" },
+              { desc: "Gas Valve (100kBTU)", part: "8100P-001" },
+              { desc: "Blower Assembly with Mixer (75/76kBTU)", part: "8100P-002" },
+              { desc: "Blower Assembly with Mixer (100kBTU)", part: "8100P-003" },
+              { desc: "Ignition Transformer", part: "8100P-010" },
+              { desc: "Ignitor Box", part: "8100P-043" },
+              { desc: "Gas Valve Support", part: "8100P-044" },
+              { desc: "Pipe Clamp", part: "8100P-045" },
+              { desc: "Burner Assembly", part: "8100P-004" },
+              { desc: "H/E Thermistor", part: "8100P-014" },
+              { desc: "Outlet Thermistor", part: "8100P-016" },
+              { desc: "Radial Blower Adaptor", part: "8100P-046" },
+              { desc: "GV Power Plug", part: "8100P-047" },
+              { desc: "Inlet Water Flow Sensor", part: "8100P-023" },
+              { desc: "Wire Harness", part: "8100P-013" },
+              { desc: "ECO Hot Water Outlet (194°F)", part: "8100P-017" },
+              { desc: "Outlet Fitting", part: "8100P-019" },
+              { desc: "Cold Inlet Water Pipe", part: "8100P-020" },
+              { desc: "ECO Burner Plate", part: "8100P-022" },
+              { desc: "Accessory Kit (75/76kBTU)", part: "8100P-025" },
+              { desc: "Accessory Kit (100kBTU)", part: "8100P-026" },
+              { desc: "Spare Parts Kit", part: "8100P-036" },
+              { desc: "Ignitor", part: "8100P-050" },
+              { desc: "Flame Sensing Rod", part: "8100P-071" }
+            ]
+          }
+        ]
+      },
+      {
+        family: "Everlast Elevate",
+        application: "Residential",
+        fuel: "Electric",
+        models: [
+          {
+            modelName: "ELV055C2X055N",
+            parts: [
+              { desc: "Front Cover (For Mixing Assy)", part: "6060P-504" },
+              { desc: "Rear Cover (For Mixing Assy)", part: "6060P-503" },
+              { desc: "Tee For Mixing Valve Assy", part: "6060P-506" },
+              { desc: "FLEX HOSE FOR MIXING VALVE ASSY", part: "6060P-507" },
+              { desc: "MIXING VALVE", part: "6060P-505" },
+              { desc: "SEAL WASHER WITH FILTER SCREEN FOR MIXING VALVE", part: "6060P-509" },
+              { desc: "UNION FOR MIXING VALVE", part: "6060P-508" },
+              { desc: "DIPTUBE-55 GAL", part: "6060P-502" },
+              { desc: "JUNCTION BOX COVER (W/SCREWS)", part: "6060P-983" },
+              { desc: "JUNCTION BOX COVER W/ KNOCKOUTS (W/SCREWS)", part: "6060P-982" },
+              { desc: "TEMP/PRESSURE RELIEF VALVE", part: "TP 1000" },
+              { desc: "ALUMINUM ANODE .63\" DIA X 12\" LENGTH (1-1/16\" SOCKET)", part: "6060P-008" },
+              { desc: "MOUNTING BRACKET", part: "6060P-955" },
+              { desc: "ELECTRIC ELEMENT-5500W", part: "6060P-937" },
+              { desc: "UPPER THERMOSTAT", part: "6060P-085" },
+              { desc: "UPPER THERMOSTAT PROTECTIVE COVER", part: "6060P-994" },
+              { desc: "PROTECTIVE INSULATION", part: "6060P-965" },
+              { desc: "ACCESS PANEL", part: "6060P-187" },
+              { desc: "SCREWS-ACCESS PANEL", part: "6075P-006" },
+              { desc: "LOWER THERMOSTAT", part: "6060P-086" },
+              { desc: "THERMOSTAT BRACKET", part: "6070P-303" },
+              { desc: "LOWER THERMOSTAT PROTECTIVE COVER", part: "6060P-952" },
+              { desc: "DRAIN VALVE", part: "6070P-009" }
+            ]
+          }
+        ]
+      },
+      {
+        family: "Everlast Elevate DR",
+        application: "Residential",
+        fuel: "Electric",
+        models: [
+          {
+            modelName: "ELV055C2X045NDR",
+            parts: [
+              { desc: "FRONT COVER (FOR MIXING ASSY)", part: "6060P-504" },
+              { desc: "REAR COVER (FOR MIXING ASSY)", part: "6060P-503" },
+              { desc: "REPLACEMENT COVER REMOVABLE", part: "6060P-983" },
+              { desc: "REPLACEMENT COVER JUNCTION BOX W/SCREWS", part: "6060P-982" },
+              { desc: "THERMISTOR BRACKET DR", part: "64980880" },
+              { desc: "PROTECTIVE INSULATION", part: "6060P-965" },
+              { desc: "ACCESS PANEL", part: "6060P-520" },
+              { desc: "#8-1/2 PIERCING SHEET METAL SCREW", part: "6060P-124" },
+              { desc: "ELEMENT PROTECTIVE COVER", part: "6060P-070" },
+              { desc: "PLASTIC COVER ECO DEMAND RESPONSE", part: "64980877" },
+              { desc: "BRACKET ECO THERMOSTAT", part: "64980879" },
+              { desc: "ELEMENT 240V-4500W", part: "6060P-938" },
+              { desc: "RELIEF VALVE 3/4 INCH", part: "6TP1000" },
+              { desc: "ALUM ANODE", part: "6060P-008" },
+              { desc: "THERMOSTAT ECO WL6L190", part: "64980881" },
+              { desc: "DRAIN VALVE", part: "6070P-009" },
+              { desc: "NTC SENSOR 10K- TSA00A9", part: "64980876" },
+              { desc: "WIRING HARNESS BOTTOM NTC DR 55", part: "64980884" },
+              { desc: "WIRING HARNESS ESWH-ECO", part: "64980878" },
+              { desc: "BRACKET NTC SENSOR", part: "64980885" },
+              { desc: "CONTROL BOX ASSY NB 566", part: "64980887" },
+              { desc: "MAIN BOARD 55 GAL", part: "64980886" },
+              { desc: "HMI ESWH-USA", part: "65155952" },
+              { desc: "RELAY BOARD ESWH USA", part: "65155954" },
+              { desc: "CONNECTING LEVER HINGE BLACK", part: "65156414" },
+              { desc: "WIRING MAIN BOARD TO RELAY BOARD WIRING", part: "65156410" },
+              { desc: "WIRING CTA 2045 CONNECTOR", part: "65156409" },
+              { desc: "HARNESS BOTTOM NTC DR 40/52/55 GAL", part: "65156412" },
+              { desc: "HARNESS TOP NTC DR 40/52/55 GAL", part: "65156411" },
+              { desc: "WIRING MB POWER", part: "65156413" },
+              { desc: "WIRING (DISPLAY)", part: "65155751" },
+              { desc: "MIXING VALVE", part: "6060P-505" },
+              { desc: "TEE FOR MIXING VALVE ASSY", part: "6060P-506" },
+              { desc: "FLEX HOSE FOR MIXING VALVE ASSY", part: "6060P-507" },
+              { desc: "SEAL WASHER W-FILTER FOR MIXING VALVE", part: "6060P-509" },
+              { desc: "UNION FOR MIXING VALVE", part: "6060P-508" },
+              { desc: "DIP TUBE 55 GAL", part: "6060P-502" }
+            ]
+          }
+        ]
+      },
+      {
+        family: "Everlast Grid-Enabled",
+        application: "Residential",
+        fuel: "Electric",
+        models: [
+          {
+            modelName: "EVG080-EVG115 (after 9/1/20)",
+            parts: [
+              { desc: "Heat Trap", part: "6060P-1038" },
+              { desc: "DIP TUBE", part: "6060P-018" },
+              { desc: "COVER - JUNCTION BOX", part: "6060P-983" },
+              { desc: "PRESSURE RELIEF VALVE", part: "TP1000" },
+              { desc: "ELECTRIC DOOR", part: "6060P-187" },
+              { desc: "SCREWS - ELECTRIC DOOR", part: "6075P-006" },
+              { desc: "ELECTRIC CONTROL PROTECTIVE COVER", part: "6060P-636" },
+              { desc: "UPPER THERMOSTAT MOUNTING CLIP", part: "6060P-956" },
+              { desc: "UPPER THERMOSTAT", part: "6060P-001" },
+              { desc: "ELECTRIC ELEMENT - 4500 WATT", part: "6060P-938" },
+              { desc: "ELECTRIC ELEMENT - 5500 WATT", part: "6060P-937" },
+              { desc: "LOWER THERMOSTAT MOUNTING CLIP (W/GROUND)", part: "6060P-097" },
+              { desc: "LOWER THERMOSTAT", part: "6060P-002" },
+              { desc: "KEYED SWITCH", part: "6060P-132" },
+              { desc: "ELECTRIC CONTROL PROTECTIVE COVER", part: "6060P-634" },
+              { desc: "ENCLOSURE INSULATION", part: "6060P-948" },
+              { desc: "LOWER COVER WITH GASKET", part: "6060P-093" },
+              { desc: "SCREWS - LOWER COVER (#8 X 1\")", part: "6060P-090" },
+              { desc: "DRAIN VALVE", part: "6070P-009" },
+              { desc: "MOUNTING CLIP - BOLT ON", part: "6060P-633" },
+              { desc: "ELEMENT PROTECTIVE COVER (USED W/BOLT ON CLIP)", part: "6060P-070" },
+              { desc: "REPLACEMENT COVER - JUNCTION BOX (W/SCREWS)", part: "6060P-982" },
+              { desc: "PROTECTIVE INSULATION", part: "6060P-965" }
+            ]
+          },
+          {
+            modelName: "EVG080-EVG115 (6/18/18 - 8/31/20)",
+            parts: [
+              { desc: "HEAT TRAP", part: "6060P-1038" },
+              { desc: "DIP TUBE 80 & 115 GAL", part: "6060P-018" },
+              { desc: "DIP TUBE 100 GAL", part: "6060P-088" },
+              { desc: "COVER - JUNCTION BOX", part: "6060P-983" },
+              { desc: "PRESSURE RELIEF VALVE", part: "6TP1000" },
+              { desc: "ELECTRIC DOOR", part: "6060P-187" },
+              { desc: "SCREWS - ELECTRIC DOOR", part: "6075P-006" },
+              { desc: "ELECTRIC CONTROL PROTECTIVE COVER", part: "6060P-636" },
+              { desc: "UPPER THERMOSTAT MOUNTING CLIP", part: "6060P-956" },
+              { desc: "UPPER THERMOSTAT", part: "6060P-001" },
+              { desc: "ELECTRIC ELEMENT - 4500 WATT", part: "6060P-938" },
+              { desc: "ELECTRIC ELEMENT - 5500 WATT", part: "6060P-937" },
+              { desc: "LOWER THERMOSTAT MOUNTING CLIP (W/GROUND)", part: "6060P-097" },
+              { desc: "LOWER THERMOSTAT", part: "6060P-002" },
+              { desc: "KEYED SWITCH", part: "6060P-132" },
+              { desc: "ELECTRIC CONTROL PROTECTIVE COVER", part: "6060P-634" },
+              { desc: "ENCLOSURE INSULATION", part: "6060P-959" },
+              { desc: "LOWER COVER WITH GASKET", part: "6060P-093" },
+              { desc: "SCREWS - LOWER COVER (#8 X 1\")", part: "6060P-090" },
+              { desc: "DRAIN VALVE", part: "6070P-009" },
+              { desc: "MOUNTING CLIP - BOLT ON", part: "6060P-633" },
+              { desc: "ELEMENT PROTECTIVE COVER (USED W/BOLT ON CLIP)", part: "6060P-070" },
+              { desc: "REPLACEMENT COVER - JUNCTION BOX (W/SCREWS)", part: "6060P-982" },
+              { desc: "PROTECTIVE INSULATION", part: "6060P-965" }
+            ]
+          },
+          {
+            modelName: "EVG080-EVG115 (Before 6/18/18)",
+            parts: [
+              { desc: "HEAT TRAP", part: "6060P-1038" },
+              { desc: "DIP TUBE", part: "6060P-018" },
+              { desc: "COVER - JUNCTION BOX", part: "6060P-983" },
+              { desc: "PRESSURE RELIEF VALVE", part: "6TP1000" },
+              { desc: "ELECTRIC DOOR", part: "6060P-187" },
+              { desc: "SCREWS - ELECTRIC DOOR", part: "6075P-006" },
+              { desc: "ELECTRIC CONTROL PROTECTIVE COVER", part: "6060P-636" },
+              { desc: "UPPER THERMOSTAT MOUNTING CLIP", part: "6060P-956" },
+              { desc: "UPPER THERMOSTAT", part: "6060P-001" },
+              { desc: "ELECTRIC ELEMENT - 4500 WATT", part: "6060P-938" },
+              { desc: "ELECTRIC ELEMENT - 5500 WATT", part: "6060P-937" },
+              { desc: "LOWER THERMOSTAT MOUNTING CLIP (W/GROUND)", part: "6060P-097" },
+              { desc: "LOWER THERMOSTAT", part: "6060P-002" },
+              { desc: "KEYED SWITCH", part: "6060P-132" },
+              { desc: "ELECTRIC CONTROL PROTECTIVE COVER", part: "6060P-634" },
+              { desc: "ENCLOSURE INSULATION", part: "6060P-948" },
+              { desc: "LOWER COVER WITH GASKET", part: "6060P-090" },
+              { desc: "HEX HEAD WITH SEAL", part: "6060P-174" },
+              { desc: "DRAIN VALVE", part: "6070P-009" },
+              { desc: "MOUNTING CLIP - BOLT ON", part: "6060P-633" },
+              { desc: "ELEMENT PROTECTIVE COVER (USED W/BOLT ON CLIP)", part: "6060P-070" }
+            ]
+          }
+        ]
+      },
+      {
+        family: "Everlast Mini Tank",
+        application: "Residential",
+        fuel: "Electric",
+        models: [
+          {
+            modelName: "EVR02.5A014C (2.5G)",
+            parts: [
+              { desc: "Screw M6x12 (flange fixing)", part: "65114656" },
+              { desc: "Screw M6x12 (element fixing)", part: "993000" },
+              { desc: "Flange", part: "65115359" },
+              { desc: "Faston protection", part: "65118180" },
+              { desc: "Heating element", part: "65118181" },
+              { desc: "Heating element gasket", part: "65116115" },
+              { desc: "Magnesium anode", part: "65103768-01" },
+              { desc: "Power cable", part: "65118183" },
+              { desc: "T&P Valve 3/4\"", part: "65150323" },
+              { desc: "Wall Hanging Bracket", part: "570341" },
+              { desc: "Screw cover", part: "65118195" },
+              { desc: "Knob", part: "65118186" },
+              { desc: "Plastic cover", part: "65118196" },
+              { desc: "Plastic protection", part: "65118189" },
+              { desc: "Thermostat lever", part: "570029" },
+              { desc: "Cable clip", part: "65150321" },
+              { desc: "TBSB Wired Thermostat", part: "65118191" },
+              { desc: "Support for TBSB Thermostat", part: "65115134" }
+            ]
+          },
+          {
+            modelName: "EVR04.0A014C (4G)",
+            parts: [
+              { desc: "Screw M6x12 (flange fixing)", part: "65114656" },
+              { desc: "Screw M6x12 (element fixing)", part: "993000" },
+              { desc: "Flange", part: "65115359" },
+              { desc: "Faston protection", part: "65118180" },
+              { desc: "Heating element", part: "65118182" },
+              { desc: "Heating element gasket", part: "65116115" },
+              { desc: "Magnesium anode", part: "65103768-01" },
+              { desc: "Power cable", part: "65118183" },
+              { desc: "T&P Valve 3/4\"", part: "65150323" },
+              { desc: "Wall Hanging Bracket", part: "570341" },
+              { desc: "Screw cover", part: "65118195" },
+              { desc: "Knob", part: "65118186" },
+              { desc: "Plastic cover", part: "65118196" },
+              { desc: "Plastic protection", part: "65118189" },
+              { desc: "Thermostat lever", part: "570029" },
+              { desc: "Cable clip", part: "65150321" },
+              { desc: "TBSB Wired Thermostat", part: "65118192" },
+              { desc: "Support for TBSB Thermostat", part: "65115134" }
+            ]
+          },
+          {
+            modelName: "EVR08.0A020C (8G)",
+            parts: [
+              { desc: "Screw M6x12 (flange fixing)", part: "65114656" },
+              { desc: "Screw M6x12 (element fixing)", part: "993000" },
+              { desc: "Flange", part: "65115359" },
+              { desc: "Faston protection", part: "65118193" },
+              { desc: "Heating element", part: "65118194" },
+              { desc: "Heating element gasket", part: "65116115" },
+              { desc: "Magnesium anode", part: "977127-01" },
+              { desc: "Power cable", part: "65118184" },
+              { desc: "T&P Valve 3/4\"", part: "65150323" },
+              { desc: "Wall Hanging Bracket", part: "570341" },
+              { desc: "Screw cover", part: "65118195" },
+              { desc: "Knob", part: "65118186" },
+              { desc: "Plastic cover", part: "65118197" },
+              { desc: "Plastic protection", part: "65118190" },
+              { desc: "Thermostat lever", part: "570029" },
+              { desc: "Cable clip", part: "65150321" },
+              { desc: "TBSB Wired Thermostat", part: "65118192" }
+            ]
+          }
+        ]
+      },
+      {
+        family: "Everlast Point of Use",
+        application: "Residential",
+        fuel: "Electric",
+        models: [
+          {
+            modelName: "EVR010A1X014N10 - EVR020A1X020N10",
+            parts: [
+              { desc: "JUNCTION BOX COVER (W/SCREWS)", part: "6060P-983" },
+              { desc: "THERMOSTAT", part: "6060P-1024" },
+              { desc: "THERMOSTAT PROTECTIVE COVER", part: "6060P-636" },
+              { desc: "ACCESS PANEL", part: "6060P-187" },
+              { desc: "SCREWS-ACCESS PANEL", part: "6075P-006" },
+              { desc: "MOUNTING CLIP (010 GAL)", part: "6060P-169" },
+              { desc: "MOUNTING CLIP (015 GAL.)", part: "6060P-170" },
+              { desc: "MOUNTING CLIP (020 GAL.)", part: "6060P-171" },
+              { desc: "TEMPERATURE & PRESSURE RELIEF VALVE", part: "TP1000" },
+              { desc: "DRAIN VALVE", part: "6060P-981" },
+              { desc: "CLIP ON NUT", part: "7450P-016" },
+              { desc: "JUNCTION BOX COVER W/KNOCKOUTS (W/SCREWS)", part: "6060P-982" },
+              { desc: "HEAT TRAP NIPPLE", part: "6060P-1038" },
+              { desc: "ELECTRIC ELEMENT - 1440 WATT", part: "6060P-963" },
+              { desc: "ELECTRIC ELEMENT - 2000 WATT", part: "6060P-964" },
+              { desc: "INSULATION", part: "6060P-965" }
+            ]
+          }
+        ]
+      },
+      {
+        family: "Everlast Residential",
+        application: "Residential",
+        fuel: "Electric",
+        models: [
+          {
+            modelName: "EVR040-EVR052 (Before April 2015)",
+            parts: [
+              { desc: "JUNCTION BOX COVER (W/SCREWS)", part: "6060P-983" },
+              { desc: "CLIP-ON NUT", part: "7450P-016" },
+              { desc: "THERMOSTAT UPPER", part: "6060P-1008" },
+              { desc: "THERMOSTAT PROTECTIVE COVER", part: "6060P-994" },
+              { desc: "ACCESS PANEL", part: "6060P-187" },
+              { desc: "SCREWS ACCESS PANEL", part: "6075P-006" },
+              { desc: "NUTS", part: "6040P-935" },
+              { desc: "MOUNTING CUP", part: "6060P-633" },
+              { desc: "SPACER", part: "6060P-979" },
+              { desc: "ELECTRIC ELEMENT-4500W", part: "6060P-938" },
+              { desc: "ELECTRIC ELEMENT-3000W", part: "6060P-939" },
+              { desc: "DRAIN VALVE", part: "7100P-276" },
+              { desc: "DRAIN VALVE", part: "2500P-0091" },
+              { desc: "THERMOSTAT-LOWER", part: "6060P-1009" },
+              { desc: "DIP TUBE-40 Gal", part: "6060P-1001" },
+              { desc: "DIP TUBE-50/100 Gal", part: "6060P-1002" },
+              { desc: "DIP TUBE-80/115 Gal", part: "6060P-1017" },
+              { desc: "NIPPLE/HEAT TRAP", part: "6060P-1003" },
+              { desc: "TEMP/PRESSURE RELIEF VALVE-40/50 Gal.", part: "TP1900" },
+              { desc: "TEMP/PRESSURE RELIEF VALVE-80/100/115 Gal", part: "TP1500" },
+              { desc: "THERMOSTAT PROTECTIVE COVER", part: "6060P-952" }
+            ]
+          },
+          {
+            modelName: "EVR040-EVR052 (After April 2015)",
+            parts: [
+              { desc: "JUNCTION BOX COVER (W/SCREWS)", part: "6060P-983" },
+              { desc: "CLIP-ON NUT", part: "7450P-016" },
+              { desc: "UPPER THERMOSTAT", part: "6060P-001" },
+              { desc: "LOWER THERMOSTAT", part: "6060P-002" },
+              { desc: "THERMOSTAT PROTECTIVE COVER (UPPER)", part: "6060P-994" },
+              { desc: "THERMOSTAT PROTECTIVE COVER (LOWER)", part: "6060P-952" },
+              { desc: "ACCESS PANEL", part: "6060P-187" },
+              { desc: "SCREWS ACCESS PANEL", part: "6075P-006" },
+              { desc: "ELECTRIC ELEMENT - 4500W", part: "6060P-938" },
+              { desc: "ELECTRIC ELEMENT - 5500W", part: "6060P-937" },
+              { desc: "DRAIN VALVE", part: "6070P-009" },
+              { desc: "DIP TUBE - 40 GAL", part: "6060P-1001" },
+              { desc: "DIP TUBE - 50/52 GAL", part: "6060P-1002" },
+              { desc: "HEAT TRAP NIPPLE", part: "6060P-1003" },
+              { desc: "TEMP/PRESSURE RELIEF VALVE", part: "6TP1000" },
+              { desc: "PROTECTIVE INSULATION", part: "6060P-965" },
+              { desc: "REPLACEMENT JUNCTION BOX COVER (W/SCREWS)", part: "6060P-982" }
+            ]
+          }
+        ]
+      },
+      {
+        family: "Everlast Residential DR",
+        application: "Residential",
+        fuel: "Electric",
+        models: [
+          {
+            modelName: "EVR040C2X045NDR - EVR052C2X045NDR",
+            parts: [
+              { desc: "REPLACEMENT COVER REMOVABLE", part: "6060P-983" },
+              { desc: "REPLACEMENT COVER JUNCTION BOX W/SCREWS", part: "6060P-982" },
+              { desc: "THERMISTOR BRACKET DR", part: "64980880" },
+              { desc: "PROTECTIVE INSULATION", part: "6060P-965" },
+              { desc: "ACCESS PANEL", part: "6060P-520" },
+              { desc: "#8-1/2 PIERCING SHEET METAL SCREW", part: "6060P-124" },
+              { desc: "ELEMENT PROTECTIVE COVER", part: "6060P-070" },
+              { desc: "PLASTIC COVER ECO DEMAND RESPONSE", part: "64980877" },
+              { desc: "BRACKET ECO THERMOSTAT", part: "64980879" },
+              { desc: "ELEMENT 240V-4500W", part: "6060P-938" },
+              { desc: "RELIEF VALVE 3/4 INCH", part: "6TP1000" },
+              { desc: "THERMOSTAT ECO WL6L190", part: "64980881" },
+              { desc: "DRAIN VALVE", part: "6070P-009" },
+              { desc: "DIP TUBE - 40 GAL", part: "6060P-1034" },
+              { desc: "DIP TUBE - 52 GAL", part: "6060P-1035" },
+              { desc: "NIPPLE-HEAT TRAP", part: "6060P-1038" },
+              { desc: "NTC SENSOR 10K-TSA00A9", part: "64980876" },
+              { desc: "WIRING HARNESS BOTTOM NTC DR 40", part: "64980882" },
+              { desc: "WIRING HARNESS BOTTOM NTC DR 52", part: "64980883" },
+              { desc: "WIRING HARNESS ESWH-ECO", part: "64980878" },
+              { desc: "CONTROL BOX ASSY NB 514 SF", part: "65156415" },
+              { desc: "MAIN BOARD - 40 GAL", part: "6501022000" },
+              { desc: "MAIN BOARD - 52 GAL", part: "6501022100" },
+              { desc: "HMI ESWH-USA", part: "65155952" },
+              { desc: "RELAY BOARD ESWH USA", part: "65155954" },
+              { desc: "CONNECTING LEVER HINGE BLACK", part: "65156414" },
+              { desc: "WIRING MAIN BOARD TO RELAY BOARD WIRING", part: "65156410" },
+              { desc: "WIRING CTA 2045 CONNECTOR", part: "65156409" },
+              { desc: "HARNESS BOTTOM NTC DR 40/52/55 GAL", part: "65156412" },
+              { desc: "HARNESS TOP NTC DR 40/52/55 GAL", part: "65156411" },
+              { desc: "WIRING MB POWER", part: "65156413" },
+              { desc: "WIRING (DISPLAY)", part: "65155751" }
+            ]
+          }
+        ]
+      }
+    ];
+
+const allCatalogParts=[];
+catalogDatabase.forEach(fam=>{fam.models.forEach(mod=>{mod.parts.forEach(p=>{allCatalogParts.push({...p,family:fam.family,modelName:mod.modelName,application:fam.application,fuel:fam.fuel})})})});
+
+const appSelect=document.getElementById('appSelect'), fuelSelect=document.getElementById('fuelSelect'), familySelect=document.getElementById('familySelect'), modelSelect=document.getElementById('modelSelect'), partSearch=document.getElementById('partSearch');
+const statsBar=document.getElementById('statsBar'), chipsRow=document.getElementById('chipsRow'), tableCard=document.getElementById('tableCard'), emptyCard=document.getElementById('emptyCard'), partsTableBody=document.getElementById('partsTableBody'), resultMeta=document.getElementById('resultMeta'), pageInfo=document.getElementById('pageInfo'), loadMoreBtn=document.getElementById('loadMoreBtn'), sortSelect=document.getElementById('sortSelect');
+
+let currentFiltered=[], groupedFiltered=[], visibleCount=100, lastSearchTerm="";
+const STORAGE_KEY="htp-v2.3";
+
+function getFilteredFamilies(){const a=appSelect.value,f=fuelSelect.value;return catalogDatabase.filter(x=>(!a||x.application===a)&&(!f||x.fuel===f));}
+function updateFamilyDropdown(){const cur=familySelect.value,filtered=getFilteredFamilies();familySelect.innerHTML='<option value="">All Families...</option>';filtered.forEach(f=>{const o=document.createElement('option');o.value=f.family;o.textContent=`${f.family} (${f.models.length})`;familySelect.appendChild(o);});if(filtered.some(f=>f.family===cur))familySelect.value=cur;}
+function updateModelDropdown(){const cur=modelSelect.value,famFilter=familySelect.value,families=getFilteredFamilies();modelSelect.innerHTML='<option value="">Choose a model...</option>';families.forEach(fam=>{if(!famFilter||fam.family===famFilter){fam.models.forEach(mod=>{const o=document.createElement('option');o.value=mod.modelName;o.dataset.family=fam.family;o.textContent=mod.modelName;modelSelect.appendChild(o);})}});if([...modelSelect.options].some(o=>o.value===cur))modelSelect.value=cur;}
+function getActiveParts(){const selFam=familySelect.value,selMod=modelSelect.value;return getFilteredFamilies().filter(f=>!selFam||f.family===selFam).flatMap(f=>f.models.filter(m=>!selMod||m.modelName===selMod).flatMap(m=>m.parts.map(p=>({...p,family:f.family,modelName:m.modelName,application:f.application,fuel:f.fuel}))));}
+function debounce(fn,ms){let t;return (...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),ms);};}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function highlight(t,term){if(!term)return escapeHtml(t);const esc=term.replace(/[.*+?^${}()|[\]\\]/g,'\$&');return escapeHtml(t).replace(new RegExp('('+esc+')','ig'),'<span class="highlight">$1</span>');}
+
+function shortModelName(family, modelName){
+  // Remove family prefix from modelName if present
+  let s=modelName.trim();
+  if(s.toLowerCase().startsWith(family.toLowerCase())){
+    s=s.slice(family.length).trim();
+    // remove leading separators like - – :
+    s=s.replace(/^\s*[-–—:]\s*/, '').trim();
+  }
+  // If still empty, return modelName (or empty)
+  return s || modelName;
+}
+
+function groupByPartNumber(partsArray){
+  if(modelSelect.value){
+    return partsArray.map(p=>({desc:p.desc, part:p.part, familyGroups:new Map([[p.family, {family:p.family, models:[shortModelName(p.family,p.modelName)]}]])}));
+  }
+  const map=new Map(); // partKey -> {desc, part, familyMap}
+  for(const p of partsArray){
+    const key=p.part.trim().toLowerCase();
+    if(!map.has(key)){
+      map.set(key,{desc:p.desc, part:p.part, familyMap:new Map()});
+    }
+    const entry=map.get(key);
+    const fam=entry.familyMap.get(p.family) || {family:p.family, models:[], seen:new Set()};
+    const shortM=shortModelName(p.family,p.modelName);
+    const fullKey=p.modelName; // use full modelName for uniqueness
+    if(!fam.seen.has(fullKey)){
+      fam.models.push(shortM);
+      fam.seen.add(fullKey);
+    }
+    entry.familyMap.set(p.family, fam);
+  }
+  // Convert familyMap to array for easier rendering
+  return Array.from(map.values()).map(e=>{
+    const groups=Array.from(e.familyMap.values()).map(g=>({family:g.family, models:g.models}));
+    return {desc:e.desc, part:e.part, familyGroups:groups, totalModels:groups.reduce((a,g)=>a+g.models.length,0)};
+  });
+}
+
+function applyFilters(){
+  lastSearchTerm=partSearch.value.trim().toLowerCase();
+  let parts=getActiveParts();
+  if(lastSearchTerm){parts=parts.filter(p=>p.desc.toLowerCase().includes(lastSearchTerm)||p.part.toLowerCase().includes(lastSearchTerm));}
+  currentFiltered=parts;
+  groupedFiltered=groupByPartNumber(parts);
+  const sort=sortSelect.value;
+  groupedFiltered.sort((a,b)=>{
+    if(sort==='part-asc') return a.part.localeCompare(b.part);
+    if(sort==='models-desc') return b.totalModels - a.totalModels || a.desc.localeCompare(b.desc);
+    return a.desc.localeCompare(b.desc);
+  });
+  visibleCount=100; render(); updateStats(); updateChips(); saveState(); syncURL();
+}
+const debouncedApply=debounce(applyFilters,150);
+
+function render(){
+  const totalUnique=groupedFiltered.length;
+  const totalRaw=currentFiltered.length;
+  const shouldShow=totalUnique>0||modelSelect.value||lastSearchTerm;
+  tableCard.style.display=shouldShow?'block':'none';
+  emptyCard.style.display=shouldShow?'none':'block';
+  if(!shouldShow){resultMeta.textContent='';pageInfo.textContent='';loadMoreBtn.style.display='none';return;}
+  const slice=groupedFiltered.slice(0,visibleCount);
+  partsTableBody.innerHTML='';
+  if(totalUnique===0){
+    partsTableBody.innerHTML='<tr><td colspan=2 style="text-align:center;padding:30px;color:var(--muted)">No results</td></tr>';
+  } else {
+    const frag=document.createDocumentFragment();
+    slice.forEach(entry=>{
+      const tr=document.createElement('tr');
+      const tdDesc=document.createElement('td');
+      // Build family-grouped tags: one tag per family, models inside { }
+      let tagsHtml='<div class="heater-tags">';
+      if(entry.familyGroups){
+        const groups = entry.familyGroups instanceof Map ? Array.from(entry.familyGroups.values()) : entry.familyGroups;
+        groups.forEach(g=>{
+          const famEsc=escapeHtml(g.family);
+          if(!g.models || g.models.length===0){
+            tagsHtml+=`<span class="heater-tag"><span class="family">${famEsc}</span></span>`;
+          } else if(g.models.length===1){
+            // single model: Family - Model or just Family { Model } ? use dash for single
+            const mEsc=escapeHtml(g.models[0]);
+            if(mEsc.toLowerCase()===famEsc.toLowerCase() || g.models[0]===g.family){
+              tagsHtml+=`<span class="heater-tag"><span class="family">${famEsc}</span></span>`;
+            } else {
+              tagsHtml+=`<span class="heater-tag"><span class="family">${famEsc}</span><span class="sep">—</span><span class="models">${mEsc}</span></span>`;
+            }
+          } else {
+            // multiple models: Family { model1, model2 }
+            const modelsStr=g.models.map(m=>escapeHtml(m)).join('<span class="sep">, </span>');
+            tagsHtml+=`<span class="heater-tag"><span class="family">${famEsc}</span><span class="sep"> { </span><span class="models">${modelsStr}</span><span class="sep"> }</span></span>`;
+          }
+        });
+      }
+      tagsHtml+='</div>';
+      tdDesc.innerHTML=`<div>${highlight(entry.desc,lastSearchTerm)}</div>${tagsHtml}`;
+      const tdPart=document.createElement('td');
+      tdPart.innerHTML=`<div class="part-cell"><span class="part-badge">${highlight(entry.part,lastSearchTerm)}</span><button class="copy-btn">Copy</button></div>`;
+      const btn=tdPart.querySelector('button');
+      btn.addEventListener('click',()=>{navigator.clipboard.writeText(entry.part).then(()=>{btn.textContent='Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('copied');},1200);});});
+      tr.appendChild(tdDesc); tr.appendChild(tdPart); frag.appendChild(tr);
+    });
+    partsTableBody.appendChild(frag);
+  }
+  if(modelSelect.value){
+    resultMeta.textContent=`${totalUnique} parts in ${modelSelect.value}`;
+  } else {
+    resultMeta.textContent=`${totalUnique} unique parts`+(totalRaw!==totalUnique?` (${totalRaw} occurrences merged)`:'')+(lastSearchTerm?` for "${partSearch.value.trim()}"`:'');
+  }
+  pageInfo.textContent=totalUnique?`Showing ${Math.min(visibleCount,totalUnique)} of ${totalUnique}`:'';
+  loadMoreBtn.style.display=visibleCount<totalUnique?'inline-flex':'none';
+}
+
+function updateStats(){const fam=getFilteredFamilies().length,mods=getFilteredFamilies().filter(f=>!familySelect.value||f.family===familySelect.value).flatMap(f=>f.models).length;document.getElementById('statsBar').innerHTML=`<b>${catalogDatabase.length}</b> families | <b>${allCatalogParts.length}</b> total — <b>${fam}</b> families / <b>${mods}</b> models | Press <span class="kbd">/</span> to search`;}
+function updateChips(){const chips=[];if(appSelect.value)chips.push({k:'app',l:`App: ${appSelect.value}`});if(fuelSelect.value)chips.push({k:'fuel',l:`Fuel: ${fuelSelect.value}`});if(familySelect.value)chips.push({k:'family',l:familySelect.value});if(modelSelect.value)chips.push({k:'model',l:modelSelect.value});if(lastSearchTerm)chips.push({k:'q',l:`Search: "${partSearch.value.trim()}"`});const row=document.getElementById('chipsRow');row.innerHTML=chips.map(c=>`<span class="chip">${escapeHtml(c.l)} <button data-k="${c.k}">x</button></span>`).join('');row.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.k;if(k==='app')appSelect.value='';if(k==='fuel')fuelSelect.value='';if(k==='family')familySelect.value='';if(k==='model')modelSelect.value='';if(k==='q')partSearch.value='';updateFamilyDropdown();updateModelDropdown();applyFilters();}));}
+function saveState(){localStorage.setItem(STORAGE_KEY,JSON.stringify({app:appSelect.value,fuel:fuelSelect.value,family:familySelect.value,model:modelSelect.value,q:partSearch.value,sort:sortSelect.value}));}
+function loadState(){try{const s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(!s)return false;appSelect.value=s.app||'';fuelSelect.value=s.fuel||'';updateFamilyDropdown();familySelect.value=s.family||'';updateModelDropdown();modelSelect.value=s.model||'';partSearch.value=s.q||'';sortSelect.value=s.sort||'desc-asc';return true;}catch(e){return false;}}
+function syncURL(){const p=new URLSearchParams();if(appSelect.value)p.set('app',appSelect.value);if(fuelSelect.value)p.set('fuel',fuelSelect.value);if(familySelect.value)p.set('family',familySelect.value);if(modelSelect.value)p.set('model',modelSelect.value);if(partSearch.value.trim())p.set('q',partSearch.value.trim());history.replaceState(null,'','?'+p.toString());}
+function readURL(){const p=new URLSearchParams(location.search);if(p.has('app'))appSelect.value=p.get('app');if(p.has('fuel'))fuelSelect.value=p.get('fuel');updateFamilyDropdown();if(p.has('family'))familySelect.value=p.get('family');updateModelDropdown();if(p.has('model'))modelSelect.value=p.get('model');if(p.has('q'))partSearch.value=p.get('q');return p.toString().length>0;}
+
+appSelect.onchange=()=>{familySelect.value='';modelSelect.value='';updateFamilyDropdown();updateModelDropdown();applyFilters();};
+fuelSelect.onchange=()=>{familySelect.value='';modelSelect.value='';updateFamilyDropdown();updateModelDropdown();applyFilters();};
+familySelect.onchange=()=>{const obj=catalogDatabase.find(f=>f.family===familySelect.value);if(obj){appSelect.value=obj.application;fuelSelect.value=obj.fuel;}modelSelect.value='';updateFamilyDropdown();updateModelDropdown();applyFilters();};
+modelSelect.onchange=()=>{applyFilters();};
+partSearch.addEventListener('input',debouncedApply);
+sortSelect.onchange=()=>{applyFilters();};
+loadMoreBtn.onclick=()=>{visibleCount+=100;render();};
+document.getElementById('resetBtn').onclick=()=>{appSelect.value='';fuelSelect.value='';familySelect.value='';modelSelect.value='';partSearch.value='';updateFamilyDropdown();updateModelDropdown();currentFiltered=[];groupedFiltered=[];render();updateStats();updateChips();};
+document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='SELECT'){e.preventDefault();partSearch.focus();} if(e.key==='Escape') partSearch.blur();});
+document.getElementById('shareBtn').onclick=()=>{navigator.clipboard.writeText(location.href).then(()=>{const b=document.getElementById('shareBtn');b.textContent='Copied!';setTimeout(()=>b.textContent='Share link',1200);});};
+document.getElementById('exportBtn').onclick=()=>{if(!groupedFiltered.length)return alert('No results'); const rows=[['Description','Part Number','Compatible Families & Models']].concat(groupedFiltered.map(e=>[e.desc,e.part,e.familyGroups.map(g=>`${g.family} { ${g.models.join(', ')} }`).join(' | ')])); const csv=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n'); const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='htp-parts-grouped.csv';a.click();};
+document.getElementById('copyAllBtn').onclick=()=>{const txt=groupedFiltered.slice(0,visibleCount).map(e=>`${e.desc} — ${e.part}`).join('\n'); navigator.clipboard.writeText(txt);};
+
+const hasURL=readURL(); if(!hasURL) loadState(); updateFamilyDropdown(); updateModelDropdown(); updateStats(); if(hasURL||partSearch.value||modelSelect.value||familySelect.value||appSelect.value||fuelSelect.value){applyFilters();} else {updateChips();}
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
